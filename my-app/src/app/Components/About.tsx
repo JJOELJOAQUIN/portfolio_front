@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import Wrapper from "./Wrapper";
 import { motion } from "framer-motion";
@@ -53,7 +54,7 @@ const About2 = () => {
                       tabIndex={0}
                       className="focus:outline-none text-base text-white leading-normal xl:w-10/12 pt-2"
                     >
-                      I am an independent web developer with a clear vision:
+                      I&apos;m an independent web developer with a clear vision:
                       connecting with clients, analyzing their challenges, and
                       creating solutions that enhance their efficiency and
                       results.
