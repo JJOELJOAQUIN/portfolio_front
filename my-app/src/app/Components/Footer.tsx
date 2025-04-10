@@ -1,46 +1,44 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { FaLinkedin, FaGithub } from "react-icons/fa"; // <- Asegurate de tener react-icons instalado
+
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="w-full bg-[#b7c5c096]  xl:px-20 lg:px-12 sm:px-6 px-4 py-12">
-      <div className="flex flex-col items-center justify-center">
-        <div>
-          <Link href="/">
-            <Image src="/5097235.jpg" height={150} width={150} alt="Beeneu" />
-          </Link>
-        </div>
-        <div className="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8">
-          <Link className="px-8 beenu-brand" href="/#elegirnos">
-            ¿Por qué elegirnos?
-          </Link>
-          <Link className="px-8 beenu-brand" href="/#contacto">
-            Contactanos
-          </Link>
-          <Link href="/servicios">
-            <p className="hover:text-orange-600 text-base cursor-pointer leading-4 beenu-brand">
-              Términos de Servicio
-            </p>
-          </Link>
-          <Link href="/politicas">
-            <p className="hover:text-orange-600 text-base cursor-pointer leading-4 beenu-brand">
-              Politicas de Privacidad
-            </p>
-          </Link>
-        </div>
-        <div className="flex items-center mt-10">
-          <p className="text-base leading-4 beenu-brand">2025</p>
-          <div className="border-l border-gray-800 pl-2 ml-2">
-            <p className="text-base leading-4 beenu-brand">
-              Powered by Beeneu, todos los derechos reservados.
-            </p>
-          </div>
-        </div>
+    <footer className="bg-green-900 text-white text-center py-6">
+      <p className="text-sm">
+        📩 Contacto:{" "}
+        <a href="mailto:jowidevelop@gmail.com" className="underline">
+          jowidevelop@gmail.com
+        </a>
+      </p>
+      <p className="text-xs mt-1">&copy; {year} JowiDev. Todos los derechos reservados.</p>
+
+      {/* LinkedIn icon */}
+      <div className="mt-4 flex justify-center">
+        <a
+          href="https://www.linkedin.com/in/joel-joaqu%C3%ADn-l%C3%B3pez-8a9125266/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-blue-400 transition-colors duration-300"
+        >
+          <FaLinkedin size={30} />
+        </a>
+        <a
+          href="https://github.com/JJOELJOAQUIN"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white hover:text-gray-400 transition-colors duration-300"
+        >
+          <FaGithub size={30} />
+        </a>
       </div>
     </footer>
   );
 };
 
 export default Footer;
+
+

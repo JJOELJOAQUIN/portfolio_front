@@ -3,7 +3,6 @@
 import React from "react";
 import Wrapper from "./Wrapper";
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
 
 const Hero: React.FC = () => {
   const ref = React.useRef(null);
@@ -36,6 +35,12 @@ const Hero: React.FC = () => {
               <div className="w-full flex justify-center md:block">
                 {/* Animación para el botón */}
                 <motion.button
+                  onClick={() => {
+                    const el = document.getElementById("contacto");
+                    if (el) {
+                      el.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                   className="hover:opacity-90 bg-[#19521a] py-3 px-5 lg:py-3 lg:px-20 rounded-lg text-white text-sm md:text-lg f-f-p"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: inView ? 1 : 0, scale: inView ? 1 : 0.8 }}
@@ -48,14 +53,13 @@ const Hero: React.FC = () => {
 
             <div className="relative w-[70%] md:w-[50%] lg:w-[40%] xl:w-[30%] translate-x-10 md:translate-x-20">
               <video
-                className="w-full max-w-[600px] h-auto object-cover rounded-lg shadow-lg"
+                className="w-full max-w-[600px] h-auto object-cover"
                 autoPlay
                 loop
                 muted
                 playsInline
               >
                 <source src="/Diseño sin título.mp4" type="video/mp4" />
-              
               </video>
             </div>
           </div>

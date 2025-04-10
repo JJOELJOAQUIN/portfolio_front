@@ -2,84 +2,69 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function Navbar() {
-  const [show, setshow] = useState(false);
-
-  const menuVariants = {
-    hidden: {
-      opacity: 0,
-      y: -20,
-      transition: { duration: 1, ease: "easeInOut" },
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: "easeInOut" },
-    },
-  };
+  const [show, setShow] = useState(false);
 
   return (
-    <div className="w-full sticky z-50 top-0 bg-[#b7c5c096]">
-      <nav className="lg:px-20 lg:py-6 sm:py-6 sm:px-7 py-5 px-4 z-50 relative">
-        {/* Contenedor principal de la navbar */}
+    <div className="w-full sticky z-50 top-0 bg-[#b7c5c096] backdrop-blur-md">
+      <nav className="px-4 py-5 md:px-20 md:py-6 relative">
         <div className="flex justify-between items-center">
-          {/* Logo / Marca a la izquierda */}
-          <div className="flex space-x-3 beenu-brand items-center">
-            {/* Agrega aquí tu logo si lo necesitas */}
+          {/* Logo o Marca */}
+          <div className="flex items-center space-x-3">
+            {/* Aquí podrías agregar un logo si querés */}
+            <span className="text-xl font-bold">JowiDev</span>
           </div>
 
-          {/* Botones Centrados */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 flex space-x-6">
-            <Link className="px-8 beenu-brand" href="/#choose-us">
-              Why Choose Us
-            </Link>
-            <Link className="px-8 beenu-brand" href="/#contacto">
-              Contact
-            </Link>
-          </div>
-
-          {/* Burger Icon (Menú Móvil) */}
+          {/* Ícono del menú hamburguesa (solo se muestra en mobile) */}
           <div
-            id="bgIcon"
-            onClick={() => setshow(!show)}
-            className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 sm:hidden cursor-pointer"
+            onClick={() => setShow(!show)}
+            className="md:hidden cursor-pointer z-50"
           >
-            {/* Ícono de Menú */}
             <svg
-              className={`${show ? "hidden" : ""}`}
+              className={`${show ? "hidden" : "block"}`}
               width={24}
               height={24}
               viewBox="0 0 24 24"
               fill="none"
             >
-              <path
-                className="transform duration-150"
-                d="M4 6H20"
-                stroke="#1F2937"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M4 12H20"
-                stroke="#1F2937"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                className="transform duration-150"
-                d="M4 18H20"
-                stroke="#1F2937"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M4 6H20M4 12H20M4 18H20" stroke="#1F2937" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
+
+          {/* Links horizontales en desktop */}
+          <div className="hidden md:flex space-x-10 font-medium">
+          <Link href="/#choose-us" scroll={true}>Why Choose Us</Link>
+            <Link href="/#contacto" scroll={true}>Contact</Link>
+
+
+          </div>
         </div>
+
+        {/* Menú vertical en mobile */}
+        {show && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-col items-center mt-6 md:hidden space-y-4 bg-white rounded-lg py-4 shadow-lg"
+          >
+            <Link
+              href="/#choose-us"
+              className="text-gray-800 text-lg"
+              onClick={() => setShow(false)}
+            >
+              Why Choose Us
+            </Link>
+            <Link
+              href="/#contacto"
+              className="text-gray-800 text-lg"
+              onClick={() => setShow(false)}
+            >
+              Contact
+            </Link>
+          </motion.div>
+        )}
       </nav>
     </div>
   );
