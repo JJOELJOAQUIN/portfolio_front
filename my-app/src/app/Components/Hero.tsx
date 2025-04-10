@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 1.2 }}
             >
               <h1 className="text-3xl lg:text-5xl xl:text-7xl font-black beenu-brand text-center md:text-left tracking-tighter f-f-i md:w-7/12 leading-tight text-heading-color">
-                Hi, I'm Joel Joaquín López
+                Hi, I m Joel Joaquín López
               </h1>
               <motion.h2
                 className="md:w-8/12 py-4 text-center md:text-left md:py-8 text-gray-300 text-lg lg:text-2xl"

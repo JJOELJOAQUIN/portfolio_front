@@ -163,7 +163,7 @@ const About2 = () => {
                     >
                       I specialize in custom software development, designing
                       innovative applications that optimize processes and drive
-                      my clients' growth. From the initial idea to
+                      my clients growth. From the initial idea to
                       implementation, I create technology tailored to every
                       need.
                     </p>
