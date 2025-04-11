@@ -14,7 +14,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 export const metadata: Metadata = {
   title: "Joel Joaquín López | Full-Stack Developer",
   description:
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Joel Joaquín López Portfolio",
     images: [
       {
-        url: "https://portfolio-front-eight.vercel.app/preview.jpg", 
+        url: "https://portfolio-front-eight.vercel.app/preview.jpg",
         width: 1200,
         height: 630,
         alt: "Imagen de presentación del portfolio de Joel Joaquín López",
@@ -47,9 +46,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="es">
       <body
